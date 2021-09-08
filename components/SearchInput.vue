@@ -20,7 +20,9 @@
           :to="{ name: 'article-slug', params: { slug: article.slug } }"
           @click.native="toggleShowResult()"
         >
-          <h4>{{ article.title }}</h4>
+          <div class="w-100 d-flex">
+            <h4 class="heading-hl">{{ article.title }}</h4>
+          </div>
           <tag-base
             v-for="(tag, index) in article.taggroup"
             :key="`tag-${index}`"
