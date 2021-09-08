@@ -1,5 +1,5 @@
 <template>
-  <div class="w-100 d-flex justify-content-center mt-2">
+  <div class="w-100 d-flex justify-content-center article-single-focused">
     <!-- <div class="col-lg-1">
       <nav class="article-inline-nav">
         <ul>
