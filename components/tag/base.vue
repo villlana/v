@@ -26,7 +26,8 @@ export default {
     }
     try {
       if (this.$el.getAttribute('data-tag-type') in this.tags) {
-        this.dynamicImagePath = this.tags[this.$el.getAttribute('data-tag-type')]
+        const prodprepend = process.env.NODE_ENV === 'production' ? '/v/' : ''
+        this.dynamicImagePath = `${prodprepend}${this.tags[this.$el.getAttribute('data-tag-type')]}`
       }
     } catch (exception) {}
   },
