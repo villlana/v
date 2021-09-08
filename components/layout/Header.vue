@@ -60,13 +60,13 @@
 
 .nav-left {
   margin-left: 15px;
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     width: 100%;
     text-align: center;
   }
 }
 .nav-right {
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     width: 100%;
     text-align: center;
     margin-top: 5px;
@@ -87,7 +87,7 @@
   }
 }
 .social-icons ::after {
-  @media (min-width: 701px) {
+  @media (min-width: 751px) {
     content: "";
     width: 1px;
     height: 40px;

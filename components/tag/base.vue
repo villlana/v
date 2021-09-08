@@ -1,6 +1,6 @@
 <template>
   <span class="article-tag" :class="dynamicClassData" @click="$emit('click')">
-    <img v-if="dynamicImagePath" height="24" :src="`${dynamicImagePath}`" />
+    <img v-if="dynamicImagePath !== ''" height="24" :src="`${dynamicImagePath}`" />
     <!-- Default Value -->
     <slot></slot>
   </span>
@@ -24,6 +24,8 @@ export default {
   mounted() {
     if (isDefined(this.$el.getAttribute('data-tag-type'))) {
       this.dynamicClassData = this.$el.getAttribute('data-tag-type')
+    } else {
+      this.dynamicImagePath = '';
     }
     try {
       if (this.$el.getAttribute('data-tag-type') in this.tags) {

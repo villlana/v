@@ -12,7 +12,16 @@
 
     <div class="col-lg-9">
       <article class="article-post">
-        <h4 class="w-100">{{ article.title }}</h4>
+        <h3 class="w-100">{{ article.title }}</h3>
+        <img :src="article.img" :alt="article.alt" />
+        <tag-base>
+          <i class="material-icons-outlined align-middle">edit_calendar</i>
+          {{ formatDate(article.updatedAt) }}
+        </tag-base>
+        <tag-base>
+          <i class="material-icons-outlined align-middle"> auto_stories </i>
+          {{ article.reading.text }}
+        </tag-base>
         <tag-base
           v-for="(tag, index) in article.taggroup"
           :key="`tag-${index}`"
@@ -20,10 +29,8 @@
         >
           {{ tag }}
         </tag-base>
-        <img :src="article.img" :alt="article.alt" />
-        <p>Article last updated: {{ article.updatedAt }}</p>
 
-        <nuxt-content :document="article" />
+        <nuxt-content class="article-content" :document="article" />
 
         <prev-next :prev="prev" :next="next" />
       </article>
@@ -33,6 +40,17 @@
 
 <script>
 export default {
+  data() {
+    return {
+      article: [],
+    }
+  },
+  methods: {
+    formatDate(date) {
+      const options = { month: 'long', day: 'numeric' }
+      return new Date(date).toLocaleDateString('en', options)
+    },
+  },
   async asyncData({ $content, params }) {
     const article = await $content('articles', params.slug).fetch()
     const [prev, next] = await $content('articles')
@@ -51,17 +69,29 @@ export default {
       next,
     }
   },
+  head() {
+    return {
+      title: `${this.article.title} - villlana's docs`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `${this.article.description}`,
+        },
+      ],
+    }
+  },
 }
 </script>
 
 <style lang="scss">
 .article-inline-nav {
-    font-size: 13px;
+  font-size: 13px;
 }
 
 .article-inline-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding-left: 0;
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="w-100 d-flex justify-content-center mt-2">
     <div class="col-lg-9">
-      <div v-if="articles.length" class="arcticles-excerpt">
+      <div v-if="articles.length" class="arcticles-excerpt mt-4">
         <div
           v-for="article of articles"
           :key="article.slug"
@@ -10,22 +10,29 @@
           <NuxtLink
             :to="{ name: 'article-slug', params: { slug: article.slug } }"
           >
-            
             <div class="w-100">
-              <h4 class="heading-hl">{{ article.title }}</h4>
+              <h3 class="heading-hl">{{ article.title }}</h3>
             </div>
           </NuxtLink>
-            <tag-base
-              v-for="(tag, index) in article.taggroup"
-              :key="`tag-${index}`"
-              :data-tag-type="tag"
-            >
-              {{ tag }}
-            </tag-base>
-            <div class="search-result-description">
-              {{ article.description }}
-            </div>
-
+          <img :src="article.img" :alt="article.alt" />
+          <tag-base>
+            <i class="material-icons-outlined align-middle">edit_calendar</i>
+            {{ formatDate(article.updatedAt) }}
+          </tag-base>
+          <tag-base>
+            <i class="material-icons-outlined align-middle"> auto_stories </i>
+            {{ article.reading.text }}
+          </tag-base>
+          <tag-base
+            v-for="(tag, index) in article.taggroup"
+            :key="`tag-${index}`"
+            :data-tag-type="tag"
+          >
+            {{ tag }}
+          </tag-base>
+          <div class="search-result-description mt-2">
+            {{ article.description }}
+          </div>
         </div>
       </div>
     </div>
@@ -39,10 +46,16 @@ export default {
       articles: [],
     }
   },
+  methods: {
+    formatDate(date) {
+      const options = { month: 'long', day: 'numeric' }
+      return new Date(date).toLocaleDateString('en', options)
+    }
+  },
   async asyncData({ $content }) {
     const articles = await $content('articles')
       .limit(50)
-      .sortBy('createdAt', 'asc')
+      .sortBy('createdAt', 'desc')
       .fetch()
     articles.forEach((article) => {
       try {

@@ -16,6 +16,7 @@
     "bootstrap": "^5.1.0",
     "core-js": "^3.15.1",
     "nuxt": "^2.15.7",
+    "reading-time": "^1.4.0",
     "vue-api-query": "^1.9.1",
     "vue-gtag": "^1.16.1"
   },

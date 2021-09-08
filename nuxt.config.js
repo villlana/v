@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'villlanas doc',
+    title: `villlana's docs`,
     meta: [{
         charset: 'utf-8'
       },
@@ -12,7 +12,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: ''
+        content: 'all about getting it done, bae'
       },
       {
         name: 'format-detection',
@@ -91,6 +91,15 @@ export default {
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
   ],
+  hooks: {
+    'content:file:beforeInsert': (document) => {
+      if (document.extension === '.md') {
+        const readingTime = require('reading-time');
+        const stats = readingTime(document.text);
+        document.reading = stats
+      }
+    }
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},

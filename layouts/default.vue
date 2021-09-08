@@ -1,7 +1,7 @@
 <template>
   <div>
     <LayoutHeader />
-    <div class="container">
+    <div class="container-fluid container-lg">
       <Nuxt />
     </div>
     

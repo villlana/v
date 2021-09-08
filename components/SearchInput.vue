@@ -23,6 +23,14 @@
           <div class="w-100 d-flex">
             <h4 class="heading-hl">{{ article.title }}</h4>
           </div>
+          <tag-base>
+            <i class="material-icons-outlined align-middle">edit_calendar</i>
+            {{ formatDate(article.updatedAt) }}
+          </tag-base>
+          <tag-base>
+            <i class="material-icons-outlined align-middle"> auto_stories </i>
+            {{ article.reading.text }}
+          </tag-base>
           <tag-base
             v-for="(tag, index) in article.taggroup"
             :key="`tag-${index}`"
@@ -79,16 +87,20 @@ export default {
         this.showResult = !this.showResult
       }
     },
+    formatDate(date) {
+      const options = { month: 'long', day: 'numeric' }
+      return new Date(date).toLocaleDateString('en', options)
+    }
   },
 }
 </script>
 
 <style lang="scss">
 .search-wrapper {
-  @media (min-width: 701px) {
+  @media (min-width: 751px) {
     min-width: 402px;
   }
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     width: 100%;
     text-align: center;
     margin-top: 9px;
@@ -130,17 +142,8 @@ export default {
   box-shadow: 0 0 13px rgb(0 0 0 / 10%);
   z-index: 999;
   max-width: 900px;
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     position: relative;
   }
-}
-.search-result-single {
-  margin-bottom: 15px;
-  a {
-    text-decoration: none;
-  }
-}
-.search-result-description {
-  color: #000;
 }
 </style>
