@@ -14,11 +14,15 @@
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.15.1",
-    "nuxt": "^2.15.7"
+    "nuxt": "^2.15.7",
+    "bootstrap": "^5.1.0",
+    "vue-api-query": "^1.9.1"
   },
   "devDependencies": {
     "eslint-config-prettier": "^8.3.0",
     "prettier": "^2.3.2",
-    "push-dir": "^0.4.1"
+    "push-dir": "^0.4.1",
+    "sass": "^1.38.2",
+    "sass-loader": "^10.2.0"
   }
 }

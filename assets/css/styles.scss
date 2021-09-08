@@ -1,0 +1,66 @@
+/*
+    Bootstrap
+*/
+// Required
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+// Optional
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/bootstrap-grid";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/tables";
+
+html,
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--base-background, #ffffff);
+}
+
+.article-post {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 18px;
+}
+
+.align-middle {
+  vertical-align: middle;
+}
+
+:root {
+  --base-line-height: 28;
+  --font-base-size: 16;
+  --font-btn-size: 16px;
+  --font-btn-weight: 500;
+
+  --base-background: #ffffff;
+
+  --color-primary: #000000;
+  --color-primary-darker: #333333;
+
+  --color-body-text: #000000;
+  --color-heading-text: #000000;
+  --color-sub-text: #666666;
+
+  --color-text-link: #000000;
+  --color-text-link-hover: #999999;
+
+  --color-btn-bg: #000000;
+  --color-btn-bg-hover: #000000;
+  --color-btn-text: #ffffff;
+  --color-btn-text-hover: #ffffff;
+
+  --color-btn-success-bg: #0e7240;
+  --color-btn-success-text: #ffffff;
+  --color-btn-success-border: #0e7240;
+  --color-btn-success-bg-hover: #1f9e5e;
+  --color-btn-success-text-hover: #ffffff;
+  --color-btn-success-border-hover: #1f9e5e;
+
+  --btn-letter-spacing: 0px;
+  --btn-border-radius: 3px;
+  --btn-border-width: 1px;
+  --btn-line-height: 23px;
+}

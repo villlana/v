@@ -1,23 +1,28 @@
 <template>
-  <div>
-    <nav>
-      <ul>
-        <li v-for="link of article.toc" :key="link.id">
-          <NuxtLink :to="`#${link.id}`">{{ link.text }}</NuxtLink>
-        </li>
-      </ul>
-    </nav>
-    <article>
-      <h1>{{ article.title }}</h1>
-      <p>{{ article.description }}</p>
-      <p>tags {{ article.tags }} </p>
-      <img :src="article.img" :alt="article.alt" />
-      <p>Article last updated: {{ article.updatedAt }}</p>
+  <div class="row">
+    <div class="col-lg-1">
+      <nav class="article-inline-nav">
+        <ul>
+          <li v-for="link of article.toc" :key="link.id">
+            <NuxtLink :to="`#${link.id}`">{{ link.text }}</NuxtLink>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
-      <nuxt-content :document="article" />
+    <div class="col-lg-11">
+      <article class="article-post">
+        <h1>{{ article.title }}</h1>
+        <p>{{ article.description }}</p>
+        <p>tags {{ article.tags }} </p>
+        <img :src="article.img" :alt="article.alt" />
+        <p>Article last updated: {{ article.updatedAt }}</p>
 
-      <prev-next :prev="prev" :next="next" />
-    </article>
+        <nuxt-content :document="article" />
+
+        <prev-next :prev="prev" :next="next" />
+      </article>
+    </div>
   </div>
 </template>
 
@@ -39,3 +44,15 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.article-inline-nav {
+    font-size: 13px;
+}
+
+.article-inline-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 0;
+}
+</style>

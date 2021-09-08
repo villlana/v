@@ -15,7 +15,6 @@
     >
       {{ next.title }}
     </NuxtLink>
-    <span v-else>&nbsp;</span>
   </div>
 </template>
 

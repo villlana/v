@@ -9,12 +9,20 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Poppins:wght@300&family=Material+Icons+Outlined&display=swap'
+      },
     ]
   },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
+  globals: {
+    id: `villlana`,
+  },
+
   css: [
+    '@assets/css/styles.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -48,9 +56,6 @@ export default {
     }
   },
 
-  // Content module configuration: https://go.nuxtjs.dev/config-content
-  content: {},
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
@@ -68,6 +73,7 @@ export default {
   },
 
   content: {
-    nestedProperties: ['article.tags']
+    nestedProperties: ['article.tags'],
+    fullTextSearchFields: ['title', 'description', 'slug', 'text', 'tags']
   }
 }
