@@ -35,6 +35,7 @@
           </div>
         </div>
       </div>
+      <misc-overlay />
     </div>
   </div>
 </template>
