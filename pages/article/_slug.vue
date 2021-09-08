@@ -10,11 +10,16 @@
       </nav>
     </div>
 
-    <div class="col-lg-11">
+    <div class="col-lg-9">
       <article class="article-post">
-        <h1>{{ article.title }}</h1>
-        <p>{{ article.description }}</p>
-        <p>tags {{ article.tags }} </p>
+        <h1 class="w-100">{{ article.title }}</h1>
+        <tag-base
+          v-for="(tag, index) in article.taggroup"
+          :key="`tag-${index}`"
+          :data-tag-type="tag"
+        >
+          {{ tag }}
+        </tag-base>
         <img :src="article.img" :alt="article.alt" />
         <p>Article last updated: {{ article.updatedAt }}</p>
 
@@ -35,6 +40,10 @@ export default {
       .sortBy('createdAt', 'asc')
       .surround(params.slug)
       .fetch()
+    article.taggroup = []
+    article.tags.split(',').forEach((tag) => {
+      article.taggroup.push(tag.trim())
+    })
 
     return {
       article,

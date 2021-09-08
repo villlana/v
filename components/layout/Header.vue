@@ -2,36 +2,85 @@
   <div>
     <nav class="d-flex w-100 justify-content-between navbar">
       <div class="nav-left logo">
-        <img src="~static/logo_1.png" height="75" width="100" alt="logo" />
+        <NuxtLink
+          to="/">
+          <img src="~static/logo_black.png" height="75" width="100" alt="logo" />
+        </NuxtLink>
       </div>
-      
+
       <SearchInput />
+
       <div class="nav-right social-icons">
-        <img src="~static/social/twitter_48px.png" width="24" height="24" alt="twitter" />
-        <img src="~static/social/discord_48px.png" width="24" height="24" alt="discord" />
-        <img src="~static/social/patreon_48px.png" width="30" height="30" alt="patreon" />
+        <a href="https://twitter.com/thevilllana" target="_blank">
+          <img
+            src="~static/social/twitter_48px.png"
+            width="24"
+            height="24"
+            alt="twitter"
+          />
+        </a>
+
+        <a href="https://discord.gg/jAAukGQQYA" target="_blank">
+          <img
+            src="~static/social/discord_48px.png"
+            width="24"
+            height="24"
+            alt="discord"
+          />
+        </a>
+
+        <a href="https://www.pixiv.net/en/users/53098578" target="_blank">
+          <img
+            src="~static/social/pixiv_48.png"
+            width="24"
+            height="24"
+            alt="pixiv"
+          />
+        </a>
+
+        <a href="https://patreon.com/villlana" target="_blank">
+          <img
+            class="patreon"
+            src="~static/social/patreon_color_100px.png"
+            width="40"
+            height="38"
+            alt="patreon"
+          />
+        </a>
       </div>
     </nav>
   </div>
 </template>
 
 <style lang="scss" scoped>
-  .navbar {
-    min-height: 96px;
-    border-bottom: 1px solid #ebebeb;
-  }
+.navbar {
+  min-height: 96px;
+  border-bottom: 1px solid #ebebeb;
+}
 
-  .nav-left {
-    margin-left: 15px;
-  }
+.nav-left {
+  margin-left: 15px;
+}
 
-  .social-icons img {
-    cursor: pointer;
-    margin-right: 10px;
-    filter: grayscale(1);
-    transition: all 0.3s;
-    &:hover {
-      filter: grayscale(0);
-    }
+.social-icons img {
+  cursor: pointer;
+  margin-right: 20px;
+  transition: all 0.3s;
+  &:hover {
+    opacity: 0.65;
+  }
+  &.patreon {
+    position: relative;
+    top: 8px;
+  }
+}
+.social-icons ::after {
+  content: "";
+  width: 1px;
+  height: 40px;
+  position: absolute;
+  background: #f2f2f2;
+  top: 28px;
+  margin-left: -6px;
   }
 </style>

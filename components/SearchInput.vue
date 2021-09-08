@@ -1,30 +1,33 @@
 <template>
-  <div>
-    <div 
-      class="input-field search-main">
+  <div class="search-wrapper">
+    <div class="input-field search-main">
       <i class="material-icons-outlined align-middle"> search </i>
       <input
         v-model="searchQuery"
         type="search"
         autocomplete="off"
-        placeholder="Search Articles"
+        placeholder="Search for Articles and more"
         @focus="toggleShowResult(true)"
       />
     </div>
     <div v-if="articles.length && this.showResult" class="search-result">
-      <div v-for="article of articles" :key="article.slug" class="search-result-single">
+      <div
+        v-for="article of articles"
+        :key="article.slug"
+        class="search-result-single"
+      >
         <NuxtLink
           :to="{ name: 'article-slug', params: { slug: article.slug } }"
           @click.native="toggleShowResult()"
         >
           <h4>{{ article.title }}</h4>
-          <span 
-            v-for="(tag, index) in article.taggroup" 
+          <tag-base
+            v-for="(tag, index) in article.taggroup"
             :key="`tag-${index}`"
-            class="article-tag" 
-            :class="tag">
-              {{ tag }}
-          </span> 
+            :data-tag-type="tag"
+          >
+            {{ tag }}
+          </tag-base>
           <div class="search-result-description">
             {{ article.description }}
           </div>
@@ -54,14 +57,16 @@ export default {
         .search(searchQuery)
         .fetch()
       this.articles.forEach((article) => {
-        try { 
+        try {
           article.taggroup = []
           article.tags.split(',').forEach((tag) => {
             article.taggroup.push(tag.trim())
           })
         } catch (exception) {}
       })
-      this.articles.length ? this.toggleShowResult(true) : this.toggleShowResult(false)
+      this.articles.length
+        ? this.toggleShowResult(true)
+        : this.toggleShowResult(false)
     },
   },
   methods: {
@@ -71,25 +76,35 @@ export default {
       } else {
         this.showResult = !this.showResult
       }
-      
-    }
+    },
   },
 }
 </script>
 
 <style lang="scss">
+.search-wrapper {
+  @media (min-width: 650px) {
+    min-width: 402px;
+  }
+}
 .input-field {
   display: inline-block;
   border-radius: 7px;
   border: none;
-  box-shadow: 0 0 13px rgb(0 0 0 / 10%);
+  box-shadow: 0 0 8px rgb(0 0 0 / 10%);
   padding: 5px;
   padding-left: 10px;
   padding-right: 10px;
 }
-.search-main input {
-  outline: none;
-  border: none;
+.search-main {
+  background: #ffffff;
+  width: 80%;
+  input {
+    width: calc(100% - 30px);
+    outline: none;
+    border: none;
+    height: 48px;
+  }
   &:focus,
   &:focus-visible {
     outline: none;
@@ -106,6 +121,8 @@ export default {
   padding: 15px;
   width: 80%;
   box-shadow: 0 0 13px rgb(0 0 0 / 10%);
+  z-index: 999;
+  max-width: 900px;
 }
 .search-result-single {
   margin-bottom: 15px;
@@ -116,22 +133,4 @@ export default {
 .search-result-description {
   color: #000;
 }
-.article-tag {
-  font-size: 80%;
-  padding: 5px;
-  margin-right: 10px;
-  &.ZBrush {
-    background: #000;
-    color: #fff;
-  }
-  &.Blender {
-    color: #fff;
-    background: #d68317;
-  }
-  &.Photoshop {
-    color: #fff;
-    background: #1d65d1;
-  }
-}
-
 </style>

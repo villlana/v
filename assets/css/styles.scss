@@ -29,6 +29,62 @@ body {
   vertical-align: middle;
 }
 
+.text-center {
+  text-align: center;
+}
+
+.article-tag {
+  border-radius: 3px;
+  font-size: 80%;
+  padding: 5px;
+  padding-bottom: 7px;
+  margin-right: 10px;
+  padding-right: 7px;
+  &.ZBrush {
+    background: #232526; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to left,
+      #414345,
+      #232526
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to left,
+      #414345,
+      #232526
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    color: #fff;
+  }
+  &.Blender {
+    color: #fff;
+    background: #f46b45; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #eea849,
+      #f46b45
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #eea849,
+      #f46b45
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+  &.Photoshop {
+    color: #fff;
+    background: #1caad6; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to left,
+      #6dd5ed,
+      #1caad6
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to left,
+      #6dd5ed,
+      #1caad6
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+}
+
 :root {
   --base-line-height: 28;
   --font-base-size: 16;
