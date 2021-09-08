@@ -42,7 +42,7 @@ export default {
   async asyncData({ $content }) {
     const articles = await $content('articles')
       .limit(50)
-      .sortBy('createdAt', 'desc')
+      .sortBy('createdAt', 'asc')
       .fetch()
     articles.forEach((article) => {
       try {
