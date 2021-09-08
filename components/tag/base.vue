@@ -1,6 +1,6 @@
 <template>
   <span class="article-tag" :class="dynamicClassData" @click="$emit('click')">
-    <img v-if="dynamicImagePath" height="24" :src="`/programs/${dynamicImagePath}`" />
+    <img v-if="dynamicImagePath" height="24" :src="`${dynamicImagePath}`" />
     <!-- Default Value -->
     <slot></slot>
   </span>
@@ -26,7 +26,7 @@ export default {
     }
     try {
       if (this.$el.getAttribute('data-tag-type') in this.tags) {
-        const prodprepend = process.env.NODE_ENV === 'production' ? '/v/' : ''
+        const prodprepend = process.env.NODE_ENV === 'production' ? '/v/programs/' : '/programs/'
         this.dynamicImagePath = `${prodprepend}${this.tags[this.$el.getAttribute('data-tag-type')]}`
       }
     } catch (exception) {}
