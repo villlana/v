@@ -131,7 +131,7 @@ export default {
   z-index: 999;
   max-width: 900px;
   @media (max-width: 700px) {
-    positioN: relative;
+    position: relative;
   }
 }
 .search-result-single {
