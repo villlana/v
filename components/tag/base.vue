@@ -15,7 +15,8 @@ export default {
       tags: {
         ZBrush: 'zbrush_white.png',
         Photoshop: 'photoshop.png',
-        Blender: 'blender.png'
+        Blender: 'blender.png',
+        DAZ: 'daz3d.png'
       },
       dynamicImagePath: ''
     }

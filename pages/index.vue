@@ -1,6 +1,6 @@
 <template>
-  <div class="w-100 d-flex justify-content-center">
-    <div class="col-9 mt-2">
+  <div class="w-100 d-flex justify-content-center mt-2">
+    <div class="col-9">
       <div v-if="articles.length" class="arcticles-excerpt">
         <div
           v-for="article of articles"
@@ -10,7 +10,11 @@
           <NuxtLink
             :to="{ name: 'article-slug', params: { slug: article.slug } }"
           >
-            <h4>{{ article.title }}</h4>
+            
+            <div class="w-100">
+              <h4 class="heading-hl">{{ article.title }}</h4>
+            </div>
+          </NuxtLink>
             <tag-base
               v-for="(tag, index) in article.taggroup"
               :key="`tag-${index}`"
@@ -21,7 +25,7 @@
             <div class="search-result-description">
               {{ article.description }}
             </div>
-          </NuxtLink>
+
         </div>
       </div>
     </div>

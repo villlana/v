@@ -1,6 +1,6 @@
 <template>
-  <div class="row">
-    <div class="col-lg-1">
+  <div class="w-100 d-flex justify-content-center mt-2">
+    <!-- <div class="col-lg-1">
       <nav class="article-inline-nav">
         <ul>
           <li v-for="link of article.toc" :key="link.id">
@@ -8,7 +8,7 @@
           </li>
         </ul>
       </nav>
-    </div>
+    </div> -->
 
     <div class="col-lg-9">
       <article class="article-post">
