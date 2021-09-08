@@ -1,6 +1,6 @@
 <template>
   <span class="article-tag" :class="dynamicClassData" @click="$emit('click')">
-    <img v-if="dynamicImagePath !== ''" height="24" :src="`${dynamicImagePath}`" />
+    <img v-if="dynamicImagePath !== ''" height="30" :src="`${dynamicImagePath}`" />
     <!-- Default Value -->
     <slot></slot>
   </span>
@@ -16,7 +16,8 @@ export default {
         ZBrush: 'zbrush_white.png',
         Photoshop: 'photoshop.png',
         Blender: 'blender.png',
-        DAZ: 'daz3d.png'
+        DAZ: 'daz3d.png',
+        Skyrim: 'prisbae.png'
       },
       dynamicImagePath: ''
     }

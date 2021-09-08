@@ -72,6 +72,17 @@ body {
     color: #fff;
   }
 
+  &.Skyrim {
+    background: #232526;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #645d21, #030302);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #645d21, #030302);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    color: #fff;
+  }
+
   &.Blender {
     color: #fff;
     background: #f46b45;
@@ -129,10 +140,12 @@ body {
 
 .search-result-single {
   margin-bottom: 33px;
+
   a {
     text-decoration: none;
   }
 }
+
 .search-result-description {
   color: #000;
 }
