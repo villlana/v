@@ -1,6 +1,6 @@
 <template>
   <div class="w-100 d-flex justify-content-center mt-2">
-    <div class="col-9">
+    <div class="col-lg-9">
       <div v-if="articles.length" class="arcticles-excerpt">
         <div
           v-for="article of articles"

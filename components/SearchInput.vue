@@ -85,8 +85,13 @@ export default {
 
 <style lang="scss">
 .search-wrapper {
-  @media (min-width: 650px) {
+  @media (min-width: 701px) {
     min-width: 402px;
+  }
+  @media (max-width: 700px) {
+    width: 100%;
+    text-align: center;
+    margin-top: 9px;
   }
 }
 .input-field {
@@ -125,6 +130,9 @@ export default {
   box-shadow: 0 0 13px rgb(0 0 0 / 10%);
   z-index: 999;
   max-width: 900px;
+  @media (max-width: 700px) {
+    positioN: relative;
+  }
 }
 .search-result-single {
   margin-bottom: 15px;

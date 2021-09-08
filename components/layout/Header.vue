@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="d-flex w-100 justify-content-between navbar">
+    <nav class="d-flex w-100 navbar">
       <div class="nav-left logo">
         <NuxtLink
           to="/">
@@ -52,7 +52,7 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .navbar {
   min-height: 96px;
   border-bottom: 1px solid #ebebeb;
@@ -60,6 +60,18 @@
 
 .nav-left {
   margin-left: 15px;
+  @media (max-width: 700px) {
+    width: 100%;
+    text-align: center;
+  }
+}
+.nav-right {
+  @media (max-width: 700px) {
+    width: 100%;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
 }
 
 .social-icons img {
@@ -75,12 +87,14 @@
   }
 }
 .social-icons ::after {
-  content: "";
-  width: 1px;
-  height: 40px;
-  position: absolute;
-  background: #f2f2f2;
-  top: 28px;
-  margin-left: -6px;
+  @media (min-width: 701px) {
+    content: "";
+    width: 1px;
+    height: 40px;
+    position: absolute;
+    background: #f2f2f2;
+    top: 28px;
+    margin-left: -6px;
   }
+}
 </style>
