@@ -12,7 +12,7 @@
 
     <div class="col-lg-9">
       <article class="article-post">
-        <h1 class="w-100">{{ article.title }}</h1>
+        <h4 class="w-100">{{ article.title }}</h4>
         <tag-base
           v-for="(tag, index) in article.taggroup"
           :key="`tag-${index}`"
