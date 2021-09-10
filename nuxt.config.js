@@ -1,7 +1,9 @@
+const title = `villlana - Documentationary`
+const altTitle = `All About Getting It Done, Bae - Documentarionary About 2D And 3D Art`
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: `villlana's docs`,
+    title: `${title}`,
     meta: [{
         charset: 'utf-8'
       },
@@ -10,9 +12,29 @@ export default {
         content: 'width=device-width, initial-scale=1'
       },
       {
+        name: 'og:site_name',
+        property: 'og:site_name',
+        content: `${title}`
+      },
+      {
+        name: 'og:title',
+        propety: 'og:title',
+        content: `${altTitle}`
+      },
+      {
+        name: 'og:type',
+        property: 'og:type',
+        content: 'website'
+      },
+      {
+        name: 'og:image',
+        property: 'og:image',
+        content: 'og-splash.png'
+      },
+      {
         hid: 'description',
         name: 'description',
-        content: 'all about getting it done, bae'
+        content: `${altTitle}`
       },
       {
         name: 'format-detection',

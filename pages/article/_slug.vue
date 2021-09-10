@@ -83,8 +83,13 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: `${this.article.description}`,
+          content: `${this.article.description}`
         },
+        {
+          name: 'og:title',
+          propety: 'og:title',
+          content: `${this.article.description}`
+        }
       ],
     }
   },

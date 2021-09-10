@@ -63,6 +63,7 @@ export default {
   },
   async asyncData({ $content }) {
     const articles = await $content('articles')
+      .without(['body'])
       .limit(50)
       .sortBy('createdAt', 'desc')
       .fetch()
