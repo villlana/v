@@ -13,22 +13,29 @@
     <div class="col-lg-9">
       <article class="article-post">
         <h3 class="w-100">{{ article.title }}</h3>
-        <img :src="article.img" :alt="article.alt" />
-        <tag-base>
-          <i class="material-icons-outlined align-middle">edit_calendar</i>
-          {{ formatDate(article.updatedAt) }}
-        </tag-base>
-        <tag-base>
-          <i class="material-icons-outlined align-middle"> auto_stories </i>
-          {{ article.reading.text }}
-        </tag-base>
-        <tag-base
-          v-for="(tag, index) in article.taggroup"
-          :key="`tag-${index}`"
-          :data-tag-type="tag"
-        >
-          {{ tag }}
-        </tag-base>
+        <img
+          v-if="article.img"
+          :src="article.img"
+          class="article-teaser-img"
+          :alt="article.alt"
+        />
+        <div class="article-tags-wrapper">
+          <tag-base data-time="true">
+            <i class="material-icons-outlined align-middle">edit_calendar</i>
+            {{ formatDate(article.updatedAt) }}
+          </tag-base>
+          <tag-base data-time="true">
+            <i class="material-icons-outlined align-middle"> auto_stories </i>
+            {{ article.reading.text }}
+          </tag-base>
+          <tag-base
+            v-for="(tag, index) in article.taggroup"
+            :key="`tag-${index}`"
+            :data-tag-type="tag"
+          >
+            {{ tag }}
+          </tag-base>
+        </div>
 
         <nuxt-content class="article-content" :document="article" />
 

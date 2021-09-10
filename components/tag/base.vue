@@ -28,6 +28,9 @@ export default {
     } else {
       this.dynamicImagePath = '';
     }
+    if (isDefined(this.$el.getAttribute('data-time'))) {
+      this.dynamicClassData = 'tag-time'
+    }
     try {
       if (this.$el.getAttribute('data-tag-type') in this.tags) {
         const prodprepend = process.env.NODE_ENV === 'production' ? '/v/programs/' : '/programs/'

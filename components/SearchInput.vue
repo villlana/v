@@ -1,13 +1,17 @@
 <template>
   <div class="search-wrapper">
-    <div class="input-field search-main">
-      <i class="material-icons-outlined align-middle"> search </i>
+    <div class="input-field search-main" id="searchqqq">
+      <i class="material-icons-outlined align-middle search-input-icon"> search </i>
       <input
         v-model="searchQuery"
         type="search"
         autocomplete="off"
         placeholder="Search for Articles and more"
-        @focus="toggleShowResult(true)"
+        @focus="
+          toggleShowResult(true)
+          toggleSearchHover(true)
+        "
+        @blur="toggleSearchHover(false)"
       />
     </div>
     <div v-if="articles.length && this.showResult" class="search-result">
@@ -90,7 +94,16 @@ export default {
     formatDate(date) {
       const options = { month: 'long', day: 'numeric' }
       return new Date(date).toLocaleDateString('en', options)
-    }
+    },
+    toggleSearchHover(take) {
+      try {
+        const baseClass = `input-field search-main`
+        const inpId = document.getElementById('searchqqq')
+        take
+          ? (inpId.classList = `${baseClass} search-input-focused`)
+          : (inpId.classList = `${baseClass}`)
+      } catch (exception) {}
+    },
   },
 }
 </script>
@@ -117,7 +130,7 @@ export default {
 }
 .search-main {
   background: #ffffff;
-  width: 80%;
+  width: 100%;
   input {
     width: calc(100% - 30px);
     outline: none;
@@ -144,6 +157,14 @@ export default {
   max-width: 900px;
   @media (max-width: 750px) {
     position: relative;
+    top: 15px;
+  }
+}
+.search-input-focused {
+  border: 3px solid #ffcaf5;
+  // box-sizing: content-box;
+  .search-input-icon {
+    margin-left: -3px;
   }
 }
 </style>

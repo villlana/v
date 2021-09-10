@@ -133,12 +133,13 @@ body {
   background-repeat: no-repeat;
   background-size: 100% 0.2em;
   background-position: 0 100%;
-  transition: background-position 0.1s ease-in;
+  transition: all 0.15s ease-in;
 }
 
 .heading-hl:hover {
-  background-position: 0 110%;
-
+  //background-position: 0 110%;
+  background-position: 0 100%;
+  background-size: 100% 0.3em;
 }
 
 .search-result-single {
@@ -153,8 +154,35 @@ body {
   color: #000;
 }
 
+.article-tags-wrapper {
+  width: 100%;
+  display: inline-block;
+
+  @media (max-width: 750px) {
+    text-align: center;
+  }
+
+}
+
+.article-tag.tag-time {
+  @media (max-width: 750px) {
+    width: 43%;
+    margin-bottom: 5px;
+  }
+}
+
+.article-teaser-img,
+img {
+  max-width: 100%;
+}
+.article-teaser-img {
+  margin-bottom: 15px;
+}
+
+
 .overlay-bottom {
-  position: absolute;
+  position: fixed;
+  background: rgba(251, 251, 251, 0.9);
   bottom: 10px;
   right: 10px;
   padding: 5px;
