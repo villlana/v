@@ -78,7 +78,7 @@ export default {
   },
   head() {
     return {
-      title: `${this.article.title} - villlana's docs`,
+      title: `${this.article.title} - villlana Documentationary`,
       meta: [
         {
           hid: 'description',
@@ -86,8 +86,9 @@ export default {
           content: `${this.article.description}`
         },
         {
+          hid: 'ogtitle',
           name: 'og:title',
-          propety: 'og:title',
+          property: 'og:title',
           content: `${this.article.description}`
         }
       ],
