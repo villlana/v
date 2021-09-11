@@ -19,3 +19,12 @@ export function isDefined(varToCheck) {
     return false;
   }
 }
+
+export function setTheme(theme) {
+  if (theme) {
+    try {
+      document.body.classList = `${theme}`
+      localStorage.setItem('__theme', `${theme}`)
+    } catch (exception) { }
+  }
+}

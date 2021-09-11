@@ -15,6 +15,7 @@
       />
     </div>
     <div v-if="articles.length && this.showResult" class="search-result">
+      <h4 class="search-result-title">Search Result:</h4>
       <div
         v-for="article of articles"
         :key="article.slug"
@@ -111,7 +112,7 @@ export default {
 <style lang="scss">
 .search-wrapper {
   @media (min-width: 751px) {
-    min-width: 402px;
+    min-width: 350px;
   }
   @media (max-width: 750px) {
     width: 100%;
@@ -129,13 +130,18 @@ export default {
   padding-right: 10px;
 }
 .search-main {
-  background: #ffffff;
+  background: var(--input-base-background);
   width: 100%;
+  @media (max-width: 750px) {
+    width: 90%;
+  }
   input {
     width: calc(100% - 30px);
     outline: none;
     border: none;
     height: 48px;
+    color: var(--color-text);
+    background: var(--input-base-background);
   }
   &:focus,
   &:focus-visible {
@@ -149,7 +155,7 @@ export default {
   left: 0;
   right: 0;
   top: 86px;
-  background: #fff;
+  background: var(--search-base-background);
   padding: 15px;
   width: 80%;
   box-shadow: 0 0 13px rgb(0 0 0 / 10%);
@@ -158,13 +164,21 @@ export default {
   @media (max-width: 750px) {
     position: relative;
     top: 15px;
+    width: 90%;
+    margin-bottom: 30px;
   }
 }
 .search-input-focused {
-  border: 3px solid #ffcaf5;
+  border: 3px solid var(--search-border);
   // box-sizing: content-box;
   .search-input-icon {
     margin-left: -3px;
+  }
+}
+.search-result-title {
+  display: none;
+  @media (max-width: 750px) {
+    display: inline-block;
   }
 }
 </style>

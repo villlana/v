@@ -4,12 +4,5 @@
     <div class="container-fluid container-lg">
       <Nuxt />
     </div>
-    
   </div>
 </template>
-
-<script>
-export default {
-    
-}
-</script>

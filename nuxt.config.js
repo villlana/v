@@ -1,9 +1,13 @@
 const title = `villlana Documentationary`
 const altTitle = `All About Getting It Done, Bae - Documentarionary About 2D And 3D Art`
+const theme = 'primary'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: `${title}`,
+    bodyAttrs: {
+      class: `${theme || 'primary'}`
+    },
     meta: [{
         charset: 'utf-8'
       },
@@ -60,7 +64,7 @@ export default {
       },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Material+Icons+Outlined&display=swap'
+        href: 'https://fonts.googleapis.com/css2?family=Open+Sans&family=Material+Icons+Outlined&display=swap'
       },
       {
         rel: 'apple-touch-icon',
@@ -99,7 +103,8 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~/plugins/variables',
-    '~/plugins/gtag'
+    '~/plugins/gtag',
+    '~/plugins/getTheme'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

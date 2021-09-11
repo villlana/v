@@ -47,7 +47,7 @@ export default {
     text-align: center;
     a {
       text-decoration: none;
-      color: #444;
+      color: var(--color-text-lighter);
     }
   }
 }

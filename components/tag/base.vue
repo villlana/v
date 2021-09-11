@@ -1,6 +1,11 @@
 <template>
   <span class="article-tag" :class="dynamicClassData" @click="$emit('click')">
-    <img v-if="dynamicImagePath !== ''" height="30" :src="`${dynamicImagePath}`" />
+    <img
+      v-if="dynamicImagePath !== ''"
+      height="30"
+      :alt="dynamicClassData"
+      :src="`${dynamicImagePath}`"
+    />
     <!-- Default Value -->
     <slot></slot>
   </span>
@@ -17,24 +22,27 @@ export default {
         Photoshop: 'photoshop.png',
         Blender: 'blender.png',
         DAZ: 'daz3d.png',
-        Skyrim: 'prisbae.png'
+        Skyrim: 'prisbae.png',
       },
-      dynamicImagePath: ''
+      dynamicImagePath: '',
     }
   },
   mounted() {
     if (isDefined(this.$el.getAttribute('data-tag-type'))) {
       this.dynamicClassData = this.$el.getAttribute('data-tag-type')
     } else {
-      this.dynamicImagePath = '';
+      this.dynamicImagePath = ''
     }
     if (isDefined(this.$el.getAttribute('data-time'))) {
       this.dynamicClassData = 'tag-time'
     }
     try {
       if (this.$el.getAttribute('data-tag-type') in this.tags) {
-        const prodprepend = process.env.NODE_ENV === 'production' ? '/v/programs/' : '/programs/'
-        this.dynamicImagePath = `${prodprepend}${this.tags[this.$el.getAttribute('data-tag-type')]}`
+        const prodprepend =
+          process.env.NODE_ENV === 'production' ? '/v/programs/' : '/programs/'
+        this.dynamicImagePath = `${prodprepend}${
+          this.tags[this.$el.getAttribute('data-tag-type')]
+        }`
       }
     } catch (exception) {}
   },

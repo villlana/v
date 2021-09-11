@@ -2,52 +2,31 @@
   <div>
     <nav class="d-flex w-100 navbar">
       <div class="nav-left logo">
-        <NuxtLink
-          to="/">
-          <img src="~static/logo_black.png" height="75" width="100" alt="logo" />
+        <NuxtLink to="/">
+          <img
+            class="primary"
+            src="~static/logo_black.png"
+            height="75"
+            width="100"
+            alt="logo"
+          />
+          <img
+            class="dark"
+            src="~static/logo_white.png"
+            height="75"
+            width="100"
+            alt="logo"
+          />
         </NuxtLink>
       </div>
 
-      <SearchInput />
+      <SearchInput class="show-desk" />
 
-      <div class="nav-right social-icons">
-        <a href="https://twitter.com/thevilllana" target="_blank">
-          <img
-            src="~static/social/twitter_48px.png"
-            width="24"
-            height="24"
-            alt="twitter"
-          />
-        </a>
+      <NavRight class="show-desk" />
 
-        <a href="https://discord.gg/jAAukGQQYA" target="_blank">
-          <img
-            src="~static/social/discord_48px.png"
-            width="24"
-            height="24"
-            alt="discord"
-          />
-        </a>
+      <NavRight class="show-mobile" />
 
-        <a href="https://www.pixiv.net/en/users/53098578" target="_blank">
-          <img
-            src="~static/social/pixiv_48.png"
-            width="24"
-            height="24"
-            alt="pixiv"
-          />
-        </a>
-
-        <a href="https://patreon.com/villlana" target="_blank">
-          <img
-            class="patreon"
-            src="~static/social/patreon_color_100px.png"
-            width="40"
-            height="38"
-            alt="patreon"
-          />
-        </a>
-      </div>
+      <SearchInput class="show-mobile" />
     </nav>
   </div>
 </template>
@@ -55,7 +34,29 @@
 <style lang="scss">
 .navbar {
   min-height: 96px;
-  border-bottom: 1px solid #ebebeb;
+  border-bottom: 1px solid var(--navbar-border);
+}
+
+.primary img.dark {
+  display: none;
+}
+.dark img.primary {
+  display: none;
+}
+
+.show-desk,
+.show-mobile {
+  display: none;
+}
+.show-desk {
+  @media (min-width: 751px) {
+    display: inline-block;
+  }
+}
+.show-mobile {
+  @media (max-width: 750px) {
+    display: inline-block;
+  }
 }
 
 .nav-left {
@@ -69,8 +70,8 @@
   @media (max-width: 750px) {
     width: 100%;
     text-align: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
 }
 
@@ -86,15 +87,36 @@
     top: 8px;
   }
 }
-.social-icons ::after {
+.social-icons a::after {
   @media (min-width: 751px) {
-    content: "";
+    content: '';
     width: 1px;
     height: 40px;
     position: absolute;
-    background: #f2f2f2;
+    background: var(--social-icons-border);
     top: 28px;
-    margin-left: -6px;
+    margin-left: -9px;
   }
+}
+
+.btn-theme::after {
+  @media (min-width: 751px) {
+    content: '';
+    width: 1px;
+    height: 40px;
+    position: absolute;
+    background: var(--social-icons-border);
+    top: -8px;
+    margin-left: 9px;
+  }
+}
+
+.primary .social-icons a::after {
+  @media (min-width: 751px) {
+    margin-left: -11px;
+  }
+}
+.social-icons a:last-child:after {
+  display: none;
 }
 </style>

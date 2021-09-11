@@ -96,15 +96,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.article-inline-nav {
-  font-size: 13px;
-}
-
-.article-inline-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding-left: 0;
-}
-</style>

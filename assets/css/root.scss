@@ -1,0 +1,40 @@
+:root,
+.primary {
+  --base-background: #ffffff;
+  --color-text: #000000;
+  --color-text-lighter: #444444;
+  --color-ul-li-text: #ffffff;
+  --color-ul-li-dot: #5f6368;
+  --color-warn: #c78633;
+  --color-info: #3740ff;
+  --overlay-bg: rgba(251, 251, 251, 0.9);
+  --scrollbar-color: #d1a5d4 #ffffff;
+  --scrollbar-background: #ffffff;
+  --scrollbar-background-color: #d1a5d4;
+  --scrollbar-border: #ffffff;
+  --search-border: #ffcaf5;
+  --search-base-background: #ffffff;
+  --navbar-border: #ebebeb;
+  --social-icons-border: #f2f2f2;
+  --input-base-background: #ffffff;
+}
+
+.dark {
+  --base-background: #222;
+  --color-text: #ededed;
+  --color-text-lighter: #f9f9f9;
+  --color-ul-li-text: #ffffff;
+  --color-ul-li-dot: #999ca0;
+  --color-warn: #ca934a;
+  --color-info: #5b63f8;
+  --overlay-bg: rgba(73, 73, 73, 0.9);
+  --scrollbar-color: #d1a5d4 #ffffff;
+  --scrollbar-background: #ffffff;
+  --scrollbar-background-color: #d1a5d4;
+  --scrollbar-border: #ffffff;
+  --search-base-background: #333333;
+  --search-border: #ffcaf5;
+  --navbar-border: #444444;
+  --social-icons-border: #333333;
+  --input-base-background: #333333;
+}
