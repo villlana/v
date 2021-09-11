@@ -23,8 +23,9 @@ export function isDefined(varToCheck) {
 export function setTheme(theme) {
   if (theme) {
     try {
-      document.body.classList = `${theme}`
+      //document.body.classList = `${theme}`
       localStorage.setItem('__theme', `${theme}`)
+      location.reload()
     } catch (exception) { }
   }
 }
