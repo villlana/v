@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="nav-wrapper">
     <nav class="d-flex w-100 navbar">
       <div class="nav-left logo">
         <NuxtLink to="/">
@@ -32,6 +32,9 @@
 </template>
 
 <style lang="scss">
+.nav-wrapper {
+  background: var(--navbar-background);
+}
 .navbar {
   min-height: 96px;
   border-bottom: 1px solid var(--navbar-border);
@@ -59,6 +62,7 @@
   }
 }
 
+
 .nav-left {
   margin-left: 15px;
   @media (max-width: 750px) {
@@ -73,6 +77,10 @@
     margin-top: 15px;
     margin-bottom: 15px;
   }
+}
+
+.social-icons.show-desk {
+  margin-top: -5px;
 }
 
 .social-icons img {
