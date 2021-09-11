@@ -1,0 +1,1 @@
+window.__NUXT__=(function(a){return {staticAssetsBase:"\u002Fv\u002Fv474747\u002Fstatic\u002F1631388700",layout:"default",error:a,serverRendered:true,routePath:"\u002Farticle\u002Fzbrush-morph-target-bae47",config:{_app:{basePath:"\u002Fv\u002F",assetsPath:"\u002Fv\u002Fv474747\u002F",cdnURL:a},content:{dbHash:"89a24f19"}}}}(null));
