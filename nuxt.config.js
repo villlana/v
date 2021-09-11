@@ -1,6 +1,7 @@
 const title = `villlana Documentationary`
 const altTitle = `All About Getting It Done, Bae - Documentarionary About 2D And 3D Art`
 const theme = 'primary'
+const global = 'villlana'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -92,8 +93,9 @@ export default {
     ]
   },
 
+
   globals: {
-    id: `villlana`,
+    id: 'villlana'
   },
 
   css: [
@@ -144,7 +146,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-
+    publicPath: '/v474747/'
   },
 
   target: 'static',
